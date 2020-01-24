@@ -8,6 +8,8 @@ const HapiSwagger = require('hapi-swagger');
 const routes = require('./app/router/index.js');
 
 const init = async () => {
+  console.log(process.env.MODE);
+
   const server = hapi.server({
     port: process.env.PORT || 80,
     host: process.env.HOST || '0.0.0.0',
