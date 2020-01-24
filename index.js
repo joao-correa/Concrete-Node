@@ -7,14 +7,15 @@ const Vision = require('@hapi/vision');
 const HapiSwagger = require('hapi-swagger');
 const routes = require('./app/router/index.js');
 
-let port = process.env.PORT;
-if (port == null || port === '') {
-  port = 8000;
-}
-
 const init = async () => {
+  let porta = process.env.PORT;
+
+  if (!porta) {
+    porta = 3000;
+  }
+
   const server = hapi.server({
-    port,
+    port: porta,
     host: 'localhost',
   });
 
@@ -36,7 +37,7 @@ const init = async () => {
   console.log('Server running on %s', server.info.uri);
 };
 
-process.on('unhandledRejection', () => {
+process.on('unhandledRejection', (err) => {
   process.exit(1);
 });
 
