@@ -15,10 +15,9 @@ if (port == null || port === '') {
 const init = async () => {
   const server = hapi.server({
     port,
-    host: '0.0.0.0',
+    host: 'localhost',
   });
 
-  
   const swaggerOptions = {
     info: {
       title: 'Concrete - Node.js Challange',
