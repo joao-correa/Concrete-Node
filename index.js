@@ -38,6 +38,7 @@ const init = async () => {
 };
 
 process.on('unhandledRejection', (err) => {
+  console.log(JSON.stringify(err));
   process.exit(1);
 });
 
