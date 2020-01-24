@@ -1,0 +1,36 @@
+{
+  "name": "node-concrete",
+  "version": "1.0.0",
+  "description": "Teste node.js Concrete",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "npm i && npx eslint --fix app/ && npx nodemon index.js",
+    "build": "npm i && node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@hapi/hapi": "^19.0.5",
+    "@hapi/inert": "^6.0.1",
+    "@hapi/joi": "^17.1.0",
+    "@hapi/vision": "^6.0.0",
+    "hapi-swagger": "^12.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.2",
+    "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.8.3",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2"
+  }
+}
