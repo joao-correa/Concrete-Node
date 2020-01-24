@@ -1,0 +1,8 @@
+{
+  "name": "Concrete test - API",
+  "description": "Concrete test in node.js",
+  "repository": "https://github.com/TheVictoor/Concrete-Node",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "keywords": ["node", "hapi", "heroku"],
+  "image": "heroku/nodejs"
+}
