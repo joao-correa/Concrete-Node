@@ -8,12 +8,6 @@ const HapiSwagger = require('hapi-swagger');
 const routes = require('./app/router/index.js');
 
 const init = async () => {
-  // let porta = process.env.PORT;
-
-  // if (!porta) {
-  //   porta = 3000;
-  // }
-
   const server = hapi.server({
     port: process.env.PORT || 80,
     host: process.env.HOST || '0.0.0.0',

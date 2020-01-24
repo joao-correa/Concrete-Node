@@ -1,6 +1,5 @@
 const Joi = require('@hapi/joi');
 const userBusiness = require('./../business/user-business');
-
 const responseContractor = require('./../contractor/response-contractor');
 const requestContractor = require('./../contractor/request-contractor');
 
@@ -101,7 +100,7 @@ const applicationRouter = [
           uid: Joi.string().required(),
         }),
         headers: Joi.object({
-          authentication: Joi.string().pattern(/Bearer {.*}/),
+          authorization: Joi.string().pattern(/Bearer .*/),
         }),
         options: {
           allowUnknown: true,
