@@ -9,7 +9,7 @@
     "build": "node index.js"
   },
   "engines": {
-    "node": "13."
+    "node": "13.x"
   },
   "author": "",
   "license": "ISC",
