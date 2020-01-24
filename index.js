@@ -7,9 +7,14 @@ const Vision = require('@hapi/vision');
 const HapiSwagger = require('hapi-swagger');
 const routes = require('./app/router/index.js');
 
+let port = process.env.PORT;
+if (port == null || port === '') {
+  port = 8000;
+}
+
 const init = async () => {
   const server = hapi.server({
-    port: 3000,
+    port,
     host: '0.0.0.0',
   });
 
