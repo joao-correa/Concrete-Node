@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-console */
 
 const hapi = require('@hapi/hapi');
@@ -9,7 +10,7 @@ const routes = require('./app/router/index.js');
 const init = async () => {
   const server = hapi.server({
     port: 3000,
-    host: 'localhost',
+    host: '0.0.0.0',
   });
 
   const swaggerOptions = {
