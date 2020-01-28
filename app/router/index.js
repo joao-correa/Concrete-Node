@@ -1,5 +1,5 @@
 const Joi = require('@hapi/joi');
-const userBusiness = require('./../business/user-business');
+const { User } = require('./../business/user-business');
 const responseContractor = require('./../contractor/response-contractor');
 const requestContractor = require('./../contractor/request-contractor');
 
@@ -27,7 +27,8 @@ const applicationRouter = [
       description: 'Criar um novo usuário.',
       notes: 'Recebe um usuário como payload, e o retorna com id e token de acesso.',
       handler: async (request, h) => {
-        const resultado = await userBusiness.signup(request && request.payload);
+        const user = User();
+        const resultado = await user.signup(request && request.payload);
         return h.response(resultado).code(resultado.code);
       },
       response: {
@@ -50,7 +51,8 @@ const applicationRouter = [
     path: '/signin',
     options: {
       handler: async (request, h) => {
-        const retorno = await userBusiness.signin(request.payload);
+        const user = User();
+        const retorno = await user.signin(request.payload);
         return h.response(retorno).code(retorno.code);
       },
       tags: ['api'],
@@ -77,8 +79,9 @@ const applicationRouter = [
     path: '/user/{uid}',
     options: {
       handler: async (request, h) => {
+        const user = User();
         const { uid } = request.params;
-        const resultado = await userBusiness.listar(request.headers, uid);
+        const resultado = await user.listar(request.headers, uid);
         return h.response(resultado).code(resultado.code);
       },
       tags: ['api'],

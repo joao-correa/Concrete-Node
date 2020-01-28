@@ -1,27 +1,18 @@
-const Mongo = require('mongodb').MongoClient;
-const config = require('./../config');
+const { MongoClient } = require('mongodb');
 
-module.exports = {
-  getConnection: (() => {
-    let conn = null;
+exports.creteConenction = ({ dburi, client = MongoClient }) => {
+  const locals = {};
 
-    return () => new Promise(((resolve, reject) => {
-      if (conn) {
-        return resolve(conn);
-      }
+  const connect = async () => {
+    if (locals.conn) return locals.conn;
+    locals.conn = await client.connect(dburi);
+    return locals.conn;
+  };
 
-      const client = new Mongo(config.mongo.connectionString, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
-      return client.connect((err) => {
-        if (err) {
-          return reject(err);
-        }
-
-        conn = client.db('concrete');
-        return resolve(conn);
-      });
-    }));
-  })(),
+  return {
+    async getDb(dbname) {
+      const conn = await connect();
+      return conn.db(dbname);
+    },
+  };
 };
