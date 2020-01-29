@@ -1,5 +1,6 @@
 const RequestContractor = require('./../contractor/request-contractor');
 const ResponseContractor = require('./../contractor/response-contractor');
+const { User } = require('./../business/user-business');
 
 exports.AuthRouter = ({ responseContractor = ResponseContractor, requestContractor = RequestContractor } = {}) => {
   return [{
