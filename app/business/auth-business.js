@@ -1,8 +1,7 @@
 /* eslint-disable prefer-promise-reject-errors */
 const Jwt = require('jsonwebtoken');
-const Key = require('./../config').key;
 
-exports.Auth = ({ jwt = Jwt, key = Key } = {}) => {
+exports.Auth = ({ jwt = Jwt, key = process.env.KEY } = {}) => {
   return {
     autorizar(identificador) {
       const token = jwt.sign(identificador, key, {
