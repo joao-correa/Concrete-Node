@@ -2,13 +2,13 @@
 /* eslint-disable no-console */
 const { Server } = require('./app/bin/server');
 
+require('dotenv').config();
+
+
 (async ()=> {
   const server = await Server();
   
-  if (process.env.NODE_ENV !== 'production') 
-    require('dotenv').load();
-  
   server.start();
-  
+
   console.log('server started.');
 })();
