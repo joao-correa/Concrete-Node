@@ -14,12 +14,12 @@ describe('assign and validade tokens', () => {
     key : 'teste',
   });
 
-  it('assigment token success', () => {
+  it('auth - autorizar usuario', () => {
     const token = auth.autorizar('teste');
     expect(token).toBe('token');
   })
 
-  it('validate token success', async () => {
+  it('auth - autenticar token', async () => {
     const validate = await auth.autenticar('teste');
     expect(validate).toEqual({ code: 200, 
       data: 'teste', 
@@ -27,7 +27,7 @@ describe('assign and validade tokens', () => {
     });
   });
 
-  it('validate token error - without token parameter', async () => {
+  it('auth - autenticar sem passa token', async () => {
     let validate = null;
     
     try {
@@ -43,7 +43,7 @@ describe('assign and validade tokens', () => {
     });
   });
 
-  it('validate token error - not authorized', async () => {
+  it('auth - validar token nao autorizado', async () => {
     const auth = Auth({
       jwt : {
         sign: (indetificador, key, options) => {
