@@ -4,7 +4,6 @@ const { Server } = require('./app/bin/server');
 
 require('dotenv').config();
 
-
 (async ()=> {
   const server = await Server();
   
